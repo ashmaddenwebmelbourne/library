@@ -81,23 +81,34 @@
     background-color: #333333;
 }
 
-.card-container {
+#card-container {
     height: 100%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
 
-.card-container>div {
+#card-container>div {
     background-color: #f2f2f2;
     padding: 20px;
     border-radius: 10px;
     -webkit-box-shadow: 5px 5px 4px -1px rgba(0, 0, 0, 0.1);
     box-shadow: 5px 5px 4px -1px rgba(0, 0, 0, 0.1);
     opacity: 70%;
+    max-width: 300px;
+    word-wrap: break-word;
+    line-height: 2rem;
 }
 
 .main {}
+
+.form-layout>form,
+label,
+input,
+textarea {
+    width: 100% !important;
+    padding-top: 10px;
+}
 
 @media only screen and (min-width: 768px) and (max-width: 991px),
 (max-width: 767px) {

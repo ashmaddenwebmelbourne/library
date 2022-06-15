@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bookary</title>
+    <title>Librarily</title>
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,7 +22,7 @@
                     <nav class="navbar navbar-expand-lg">
                         <a class="navbar-brand d-flex align-items-center" href="javascript:void(0)">
                             <img class="logo-img" src="img/logo.svg" alt="Bookary Logo">
-                            <H1 class="logo">Bookary</H1>
+                            <H1 class="logo">Librarily</H1>
                         </a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarOne" aria-controls="navbarOne" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="toggler-icon"></span>
@@ -78,18 +78,8 @@
             <img class="plus-sign" src="img/plus.svg" alt="plus sign">
           </button>
     </div>
-    <div class="card-container">
-        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab officia eveniet quos eaque odio error labore temporibus assumenda, veritatis pariatur maiores, accusantium commodi vitae, facere in nemo repellat. Sint, culpa.</div>
-        <div>Hello</div>
-        <div>Hello</div>
-        <div>Hello</div>
-        <div>Hello</div>
-        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab officia eveniet quos eaque odio error labore temporibus assumenda, veritatis pariatur maiores, accusantium commodi vitae, facere in nemo repellat. Sint, culpa.</div>
-        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab officia eveniet quos eaque odio error labore temporibus assumenda, veritatis pariatur maiores, accusantium commodi vitae, facere in nemo repellat. Sint, culpa.</div>
-        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab officia eveniet quos eaque odio error labore temporibus assumenda, veritatis pariatur maiores, accusantium commodi vitae, facere in nemo repellat. Sint, culpa.</div>
-        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab officia eveniet quos eaque odio error labore temporibus assumenda, veritatis pariatur maiores, accusantium commodi vitae, facere in nemo repellat. Sint, culpa.</div>
-
-    </div>
+    <div id="card-container">
+       
  </main>
 
  <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
@@ -102,17 +92,26 @@
           </button>
         </div>
         <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+            <div class="form-layout">
+                <form onsubmit="formSubmit()" id="contact-form" method="GET" action="index.html"  target="_self">
+                    <label for="title">Title:</label><br>
+                    <input type="text" id="title" name="title" required><br>
+                    <label for="author">Author:</label><br>
+                    <input type="text" id="author" name="author" required><br>
+                    <label for="rating">Rating</label>
+                    <input type="number" id="rating" name="rating" min="1" max="5" value="1" required><br>
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description" required></textarea>
+                    <input type="button" class="btn btn-secondary mt-4" data-dismiss="modal" value="Cancel"><br>
+                    <input id="submit-button" type="button" class="btn btn-dark mt-3" value="button">
+                  </form>
+            </div>
         </div>
       </div>
     </div>
   </div>
 
- <footer>
+ <footer class="fixed-bottom">
 <div class="bg-new pt-4 pb-2 text-white">
     <div class="container d-flex align-items-center justify-content-between">
         <svg class="mb-3"xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
@@ -123,8 +122,6 @@
 </div>
     </footer>
 
-    <!--====== Bootstrap js ======-->
-    <script src="https://cdn.ayroui.com/1.0/js/bootstrap.bundle.min.js"></script>
 
     <script>
         //===== close navbar-collapse when a  clicked
@@ -139,6 +136,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
