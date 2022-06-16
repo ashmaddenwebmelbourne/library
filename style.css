@@ -13,7 +13,7 @@ span {
 .primary-btn {
     background: var(--main-color);
     color: var(--main-color);
-    box-shadow: var(--shadow-2);
+    box-shadow: var(--main-color);
 }
 
 .active.primary-btn,
@@ -21,7 +21,7 @@ span {
 .primary-btn:focus {
     background: var(--main-color);
     color: var(--main-color);
-    box-shadow: var(--shadow-4);
+    box-shadow: var(--main-color);
 }
 
 .deactive.primary-btn {
@@ -103,8 +103,6 @@ span {
     word-wrap: break-word;
     line-height: 2rem;
 }
-
-.main {}
 
 .form-layout>form,
 label,
