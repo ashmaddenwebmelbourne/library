@@ -1,6 +1,5 @@
 let myLibrary = [];
 let btn = document.getElementById("submit-button");
-let btnDelete = document.querySelector(".deleteIcon");
 let cardContainer = document.getElementById("card-container");
 let book;
 let newDiv;
@@ -20,12 +19,6 @@ btn.addEventListener("click", function(event) {
     // Sets up card layout with bold text
     let deleteContainer = document.createElement("div");
     let deleteIcon = document.createElement("img");
-    deleteContainer.style.display = "flex";
-    deleteContainer.style.justifyContent = "flex-end"
-    deleteIcon.className = "deleteIcon";
-    deleteIcon.src = "img/logo.svg"
-    deleteIcon.style.width = "50px";
-    deleteIcon.style.height = "50px";
     let boldTitle = document.createElement("b");
     let titleBold = document.createTextNode("Title: ");
     let boldAuthor = document.createElement("b");
@@ -34,12 +27,19 @@ btn.addEventListener("click", function(event) {
     let ratingBold = document.createTextNode("Rating: ");
     let boldDesc = document.createElement("b");
     let descBold = document.createTextNode("Description: ");
+    deleteContainer.style.display = "flex";
+    deleteContainer.style.justifyContent = "flex-end"
+    deleteIcon.className = "deleteIcon";
+    deleteIcon.src = "img/delete.svg"
+    deleteIcon.style.width = "20px";
+    deleteIcon.style.height = "20px";
     deleteContainer.appendChild(deleteIcon);
     boldTitle.appendChild(titleBold);
     boldAuthor.appendChild(authorBold);
     boldRating.appendChild(ratingBold);
     boldDesc.appendChild(descBold);
     newDiv = document.createElement("div");
+    newDiv.className = "newDiv"
     cardContainer.append(newDiv);
 
     // Closes the modal 
@@ -70,11 +70,11 @@ btn.addEventListener("click", function(event) {
     document.getElementById("rating").value = 1;
     document.getElementById("description").value = "";
 
-});
-
-
-
-// Function for deleting books 
-btnDelete.addEventListener("click", function() {
-    alert("Hi");
+    // for deleting books
+    let deleteLinks = document.querySelectorAll('.deleteIcon');
+    for (let i = 0; i < deleteLinks.length; i++) {
+        deleteLinks[i].onclick = function() {
+            this.closest(".newDiv").remove();
+        };
+    }
 });
