@@ -2,6 +2,10 @@
     --main-color: #333333;
 }
 
+span {
+    font-weight: bold;
+}
+
 .bg-new {
     background-color: var(--main-color);
 }

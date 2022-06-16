@@ -1,6 +1,7 @@
 let myLibrary = [];
 let btn = document.getElementById("submit-button");
-let cardContainer = document.getElementById("card-container")
+let btnDelete = document.querySelector(".deleteIcon");
+let cardContainer = document.getElementById("card-container");
 let book;
 let newDiv;
 
@@ -12,21 +13,68 @@ function Book(title, author, rating, description) {
     this.description = description;
 }
 
+
+// Function when clicking the plus sign
 btn.addEventListener("click", function(event) {
+
+    // Sets up card layout with bold text
+    let deleteContainer = document.createElement("div");
+    let deleteIcon = document.createElement("img");
+    deleteContainer.style.display = "flex";
+    deleteContainer.style.justifyContent = "flex-end"
+    deleteIcon.className = "deleteIcon";
+    deleteIcon.src = "img/logo.svg"
+    deleteIcon.style.width = "50px";
+    deleteIcon.style.height = "50px";
+    let boldTitle = document.createElement("b");
+    let titleBold = document.createTextNode("Title: ");
+    let boldAuthor = document.createElement("b");
+    let authorBold = document.createTextNode("Author: ");
+    let boldRating = document.createElement("b");
+    let ratingBold = document.createTextNode("Rating: ");
+    let boldDesc = document.createElement("b");
+    let descBold = document.createTextNode("Description: ");
+    deleteContainer.appendChild(deleteIcon);
+    boldTitle.appendChild(titleBold);
+    boldAuthor.appendChild(authorBold);
+    boldRating.appendChild(ratingBold);
+    boldDesc.appendChild(descBold);
+    newDiv = document.createElement("div");
+    cardContainer.append(newDiv);
+
+    // Closes the modal 
     $('#Modal').modal('hide');
+
+    // Creates the book object and adds it to array 
     book = new Book(document.getElementById("title").value, document.getElementById("author").value, parseInt(document.getElementById("rating").value), document.getElementById("description").value);
     myLibrary.push(book);
-    newDiv = document.createElement("div");
-    cardContainer.appendChild(newDiv);
-    newDiv.appendChild(document.createTextNode("Title: "));
+
+    // Assigns book object data to the card 
+    newDiv.appendChild(deleteContainer);
+    newDiv.appendChild(boldTitle);
     newDiv.appendChild(document.createTextNode(book.title));
     newDiv.appendChild(document.createElement("br"));
-    newDiv.appendChild(document.createTextNode("Author: "));
+    newDiv.appendChild(boldAuthor);
     newDiv.appendChild(document.createTextNode(book.author));
     newDiv.appendChild(document.createElement("br"));
-    newDiv.appendChild(document.createTextNode("Rating: "));
-    newDiv.appendChild(document.createTextNode(book.rating));
+    newDiv.appendChild(boldRating);
+    newDiv.appendChild(document.createTextNode(`${book.rating}/5`));
     newDiv.appendChild(document.createElement("br"));
-    newDiv.appendChild(document.createTextNode("Description: "));
+    newDiv.appendChild(boldDesc);
     newDiv.appendChild(document.createTextNode(book.description));
+    newDiv.appendChild(document.createElement("br"));
+
+    // Clears the form input fields so users can enter a new book 
+    document.getElementById("title").value = "";
+    document.getElementById("author").value = "";
+    document.getElementById("rating").value = 1;
+    document.getElementById("description").value = "";
+
+});
+
+
+
+// Function for deleting books 
+btnDelete.addEventListener("click", function() {
+    alert("Hi");
 });
