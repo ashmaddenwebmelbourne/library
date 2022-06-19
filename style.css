@@ -88,20 +88,35 @@ span {
 #card-container {
     height: 100%;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
 }
 
 #card-container>div {
     background-color: #f2f2f2;
     padding: 20px;
     border-radius: 10px;
+    margin: 0px 10px 20px 10px;
     -webkit-box-shadow: 5px 5px 4px -1px rgba(0, 0, 0, 0.1);
     box-shadow: 5px 5px 4px -1px rgba(0, 0, 0, 0.1);
     opacity: 70%;
-    max-width: 300px;
     word-wrap: break-word;
     line-height: 2rem;
+}
+
+main {
+    min-height: calc(100vh - 81px - 79px)
+}
+
+@media screen and (max-width: 992px) {
+    #card-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 576px) {
+    #card-container {
+        grid-template-columns: 1fr;
+    }
 }
 
 .form-layout>form,

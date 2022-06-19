@@ -4,14 +4,13 @@ let cardContainer = document.getElementById("card-container");
 let book;
 let newDiv;
 
-
+// Book constructor 
 function Book(title, author, rating, description) {
     this.title = title;
     this.author = author;
     this.rating = rating;
     this.description = description;
 }
-
 
 // Function when clicking the plus sign
 btn.addEventListener("click", function(event) {
@@ -27,6 +26,14 @@ btn.addEventListener("click", function(event) {
     let ratingBold = document.createTextNode("Rating: ");
     let boldDesc = document.createElement("b");
     let descBold = document.createTextNode("Description: ");
+    let imgDiv = document.createElement("span");
+    let ratingAmount = parseInt(document.getElementById("rating").value);
+    let ratingDiv = document.createElement("div");
+    ratingDiv.style.display = "flex";
+    ratingDiv.style.alignItems = "center";
+    imgDiv.className = "imgRating";
+    imgDiv.style.display = "flex";
+    imgDiv.style.marginLeft = "5px";
     deleteContainer.style.display = "flex";
     deleteContainer.style.justifyContent = "flex-end"
     deleteIcon.className = "deleteIcon";
@@ -57,9 +64,19 @@ btn.addEventListener("click", function(event) {
     newDiv.appendChild(boldAuthor);
     newDiv.appendChild(document.createTextNode(book.author));
     newDiv.appendChild(document.createElement("br"));
-    newDiv.appendChild(boldRating);
-    newDiv.appendChild(document.createTextNode(`${book.rating}/5`));
-    newDiv.appendChild(document.createElement("br"));
+
+    //  Star rating generator 
+    newDiv.appendChild(ratingDiv);
+    ratingDiv.appendChild(boldRating);
+    ratingDiv.appendChild(imgDiv);
+    for (let i = 0; i < ratingAmount; i++) {
+        let imgRating = document.createElement("img");
+        imgRating.src = "img/star.svg";
+        imgRating.style.width = "20px";
+        imgRating.style.height = "20px";
+        imgDiv.append(imgRating);
+    }
+
     newDiv.appendChild(boldDesc);
     newDiv.appendChild(document.createTextNode(book.description));
     newDiv.appendChild(document.createElement("br"));
